@@ -42,12 +42,7 @@ docker run --name jrvs-psql \
 ```
 The Dockerfile tells the image to inject the commands in `/psql/sql_dll/schema.sql` after creating the jrvstrading database,
 so the database is fully ready after being dockerized.
-# Cloud Architecture Diagram
-- trading app diagram
-  - use draw.io and aws icons (it's in the draw.io library)
-  - include ec2, alb, auto scaling, target group, rds
-  - security groups
-  - label all important ports(e.g. ALB HTTP, ec2 tpc:5000, RDS tcp:5432)
+
+![cloud diagram](./cloud_diagram.png)
   
-# AWS EB and Jenkins CI/CD Pipeline Diagram
-- Please refer to Jenkins guide architecture diagram.
+![EB diagram](./cloud_diagram_jenkins.png)
