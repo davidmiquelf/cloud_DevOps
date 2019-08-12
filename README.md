@@ -1,6 +1,7 @@
 # Introduction
 A walk through of how I deployed my trading-app project (https://github.com/davidmiquelf/trading-app) to AWS cloud.
-First with Docker, then with Elastic Beanstalk and Jenkins.
+First a manual deployment with Docker, then an automated one with Elastic Beanstalk and Jenkins.  
+
 The trading-app simulates an API for posting, browsing, buying, and selling market quotes.
 It runs on EC2 micro instances that each have access to the same PostgreSQL RDS (Amazon relational database service).  
 
