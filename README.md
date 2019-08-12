@@ -1,7 +1,8 @@
 # Introduction
-Deploying my trading-app project to AWS cloud, with and without Docker.
-The app simulates an API for posting, browsing, buying, and selling market quotes.
-It runs on EC2 micro instances that have access to a PostgreSQL RDS within the VPC.  
+A walk through of how I deployed my trading-app project (https://github.com/davidmiquelf/trading-app) to AWS cloud.
+First with Docker, then with Elastic Beanstalk and Jenkins.
+The trading-app simulates an API for posting, browsing, buying, and selling market quotes.
+It runs on EC2 micro instances that each have access to the same PostgreSQL RDS (Amazon relational database service).  
 
 # Docker
 With Docker, each EC2 instance pulls the docker images from Dockerhub or Github, then creates
