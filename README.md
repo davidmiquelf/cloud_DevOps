@@ -49,13 +49,18 @@ so the database is fully ready after being dockerized.
 
 # AWS Cloud
 
-After setting up the server on a single EC2 instance, I created an image of the instance so that I could launch new server instances from a launch template. Then I set up a load balancer and an auto-scaling group to automatically launch/terminate instances depending on server load.
+I did a number of small experiments on AWS to deploy my project to the cloud, here is a summary of what I did:
+ - Now that I had docker images and scripts to dockerize my application, I could quickly set up my application on an Amazon EC2 instance. 
+ - I created an image of that instance so that I could launch copies of it from a launch template. 
+ - Rather than running jrvs-psql on each instance, I set up a single instance to run jrvs-psql, and allowed the other instances in the VPC (virtual private cloud) to access it. 
+ - Just to see if I could, I deleted my psql instance and used Amazon RDS to run an auto-generated psql database.
+ - I set up a load balancer and an autoscaling group to automatically launch/terminate instances depending on server load.
 
 ![cloud diagram](./cloud_diagram.png)
 
 # Jenkins and Elastic Beanstalk
 
-The problem with the above approach is the hassle of setting it up and the difficulty keeping all the instances up to date. If I want to use a newer version of my app, I basically need to log in to each instance and pull the latest docker image.  
+The problem with the above approach is that it took a while to set it up, and updating my project way too time consuming. If I wanted to use a newer version of my app, I basically needed to log in to each instance and pull the latest docker image.  
 Luckliy, Elastic Beanstalk (EB) can fully automate the process. After setting up an EB project with the desired environment variables and port forwards, I can simply upload a jar file of the latest version of my trading-app to have it run on all the automatically generated instances. Then, whenever I want to update my project I simply upload a new jar file.  
 
 But there are two problems to consider: 
