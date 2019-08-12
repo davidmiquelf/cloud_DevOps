@@ -8,7 +8,8 @@ It runs on EC2 micro instances that each have access to the same PostgreSQL RDS 
 # Docker
 With Docker, each EC2 instance pulls the docker images from Dockerhub or Github, then creates
 and runs the containers. They originally ran psql locally, but in later iterations they simply connected
-to the RDS.
+to the RDS.  
+
 ![Docker architecture diagram](./docker_diagram.png)
 
 There are two Docker files, one in the base folder of trading-app, and the other in the psql folder.
